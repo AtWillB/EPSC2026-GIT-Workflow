@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\title{CONFERENCE YEAR Abstract Draft Title}
+\author{First Author$^{1}$ \and Second Author$^{2}$\\[0.4em]\normalsize $^{1}$Institute or affiliation 1\\\normalsize $^{2}$Institute or affiliation 2}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This is a simple local drafting template for a CONFERENCE YEAR abstract.
+Update the title, authors, text, and references as needed before submitting the final version through the CONFERENCE YEAR online abstract system.
+\end{abstract}
+
+\section*{Draft text}
+
+Replace this placeholder text with your abstract draft.
+Keep the language concise and adapt the structure to the current CONFERENCE submission instructions.
+You can cite supporting work with BibTeX, for example \cite{smith2024example}.
+
+\IfFileExists{figures/exported/example-figure.png}{
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/exported/example-figure.png}
+    \caption{Example figure placeholder. Replace this file with your own figure export.}
+    \label{fig:example}
+\end{figure}
+}{}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

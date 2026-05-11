@@ -1,0 +1,14 @@
+Section 1 - intro
+
+Section 2 - Git Workflow 1
+
+Section 3 - Git Workflow 2
+
+Section 4 - Git Workflow 3
+
+Section 5 - Conclusion
+
+
+
+References
+[1] Doe et al., Year, Journal , [2] ...

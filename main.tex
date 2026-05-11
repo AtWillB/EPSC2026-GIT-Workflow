@@ -3,21 +3,85 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{authblk}
+\usepackage[style=numeric, sorting=none, backend=biber]{biblatex}
+\addbibresource{references.bib}
 
-\title{CONFERENCE YEAR Abstract Draft Title}
-\author{First Author$^{1}$ \and Second Author$^{2}$\\[0.4em]\normalsize $^{1}$Institute or affiliation 1\\\normalsize $^{2}$Institute or affiliation 2}
-\date{}
+
+
+% determines the spacing and general formatting of each section in the document
+\makeatletter
+\renewcommand{\@maketitle}{%
+    \newpage
+    \null
+    \vskip 2em%
+    \let\footnote\thanks
+    \begin{center}%
+        {\LARGE \@title \par}%
+    \end{center}%
+        \vskip 1em%
+        {\large \noindent\begin{minipage}{\textwidth}\raggedright \@author\end{minipage}\par}%
+        \vskip 1em%
+    \begin{center}%
+        {\@date}%
+    \end{center}%
+    \par
+    \vskip 1.5em%
+}
+
+% Compact bibliography format: [N] Author et al., Year, ShortJournal.
+\DeclareNameFormat{familyonly}{%
+  \ifnumequal{\value{listcount}}{1}{%
+    \namepartfamily%
+    \ifnumgreater{\value{listtotal}}{1}{ et al.}{}%
+  }{}%
+}
+\DeclareBibliographyDriver{article}{%
+  \printnames[familyonly]{author}%
+  , \printfield{year}%
+  , \printfield{shortjournal}%
+  .}
+\DeclareBibliographyDriver{inproceedings}{%
+  \printnames[familyonly]{author}%
+  , \printfield{year}%
+  , \printfield{shortjournal}%
+  .}
+\AtBeginBibliography{\setlength{\parskip}{0pt}}
+\setlength{\bibitemsep}{0pt}
+\setlength{\bibparsep}{0pt}
+
+\makeatother
+
+\title{Git Workflow Examples for Software Development Teams at Different Stages of Maturity}
+\renewcommand\Authands{, }
+\author[1,2]{William Byrne}
+\author[1]{Christian H{\"u}ttig, }
+\author[1]{Mario D'Amore}
+%\author[2]{Phillip Baumeister}
+\author[2]{Quentin Betton} % add 3 once you get details
+
+\affil[1]{Institute of Space Research, German Aerospace Center (DLR), Berlin, Germany\\
+\href{mailto:William.Byrne@dlr.de}{William.Byrne@dlr.de}; \href{mailto:Christian.Huettig@dlr.de}{Christian.Huettig@dlr.de}; \href{mailto:Mario.DAmore@dlr.de}{Mario.DAmore@dlr.de}}
+\affil[2]{Institute of Geological Sciences, Freie Universit\"at Berlin, Berlin, Germany\\
+\href{mailto:byrnew02@zedat.fu-berlin.de}{byrnew02@zedat.fu-berlin.de}}% add Quentins tomorrow when you get it; \href{mailto:}{}}
+%\affil[3]{Nante institute, Nante University, Nante, France\\
+%\href{mailto:Quentin@nante.edu}{Quentin@nante.edu}}
+\date{05.05.2026}
 
 \begin{document}
+    
 
 \maketitle
 
-\begin{abstract}
-This is a simple local drafting template for a CONFERENCE YEAR abstract.
-Update the title, authors, text, and references as needed before submitting the final version through the CONFERENCE YEAR online abstract system.
-\end{abstract}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
 
-\section*{Draft text}
+\section*{Plain Language Summary}
+Replace this placeholder text with a plain language summary of your abstract.
+
+
+\section*{Abstract}
 
 Replace this placeholder text with your abstract draft.
 Keep the language concise and adapt the structure to the current CONFERENCE submission instructions.
@@ -32,7 +96,12 @@ You can cite supporting work with BibTeX, for example \cite{smith2024example}.
 \end{figure}
 }{}
 
-\bibliographystyle{plain}
-\bibliography{references}
+\newpage
+
+\printbibliography
+Institute Name: German Aerospace Center (DLR), Institute of Space Research\\
+Billing Address: Rutherfordstr. 2, 12489 Berlin, Germany\\
+VAT ID DLR: DE 121965658
+
 
 \end{document}

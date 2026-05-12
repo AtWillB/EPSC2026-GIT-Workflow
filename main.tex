@@ -2,8 +2,15 @@
 
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{soul} % highlighting (allows line breaks)
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
 \usepackage{authblk}
+
+% Highlighted text for comments: \commenthl{...} or \commenthl[orange]{...}
+\newcommand{\commenthl}[2][yellow]{%
+  \begingroup\sethlcolor{#1}\hl{#2}\endgroup%
+}
 \usepackage[style=numeric, sorting=none, backend=biber]{biblatex}
 \addbibresource{references.bib}
 
@@ -79,21 +86,22 @@
 
 \section*{Plain Language Summary}
 Planetary science is becoming more reliant on programming, but many researchers still work in 
-ways that make code easy to lose, hard to share, and stressful to discuss. This abstract 
+ways that make software easy to lose, hard to share, and stressful to discuss. This abstract 
 explains how Git can help by introducing simple, realistic workflows that match different 
 team sizes. For someone working alone, a small routine of saving and syncing changes can create 
-a clear history and make mistakes easier to recover. For small teams (3-5 people), using short-lived branches 
+a clear history and make mistakes easier to recover. For small teams (three to five people), using short-lived branches 
 and pull requests adds lightweight peer review, improves communication, and reduces the risk of breaking 
- code. For larger teams, adding a development branch and basic testing suite supports steady collaboration 
-while keeping a stable version available for users. The goal is not to force one strict method, but to 
+ software. For larger teams, adding a development branch and basic testing suite supports steady collaboration 
+while keeping a stable version available for users. Any software that aims to be used by more than one person, or used at significant temporal intervals, should adhere to minimal software engineering best practices, and version control is one of them [citation for this being best practice]. The goal is not to force one strict method, but to 
 show that version control can be taught and adopted in academic settings. In planetary science, better 
 Git habits can preserve knowledge, support teamwork, and build confidence in shared research software.
 
+
 \section*{Abstract}
 
-Planetary scientists write more code than ever. Most do so alone, 
+Planetary scientists write more software than ever. Most do so alone, 
 without version control, and (especially those early in their careers) with the quiet anxiety that comes from knowing their 
-software may not survive advisor scrutiny. Git [citation? - here is a fake place-holder \cite{smith2024example}] has been the standard tool for 
+software may not survive advisor scrutiny. Git \cite{git} has been the standard tool for 
 collaborative software development in industry for [insert a googled timeframe], yet its 
 adoption in academic research remains inconsistent. Not because researchers 
 lack the ability to use it, but because no one has made a concrete case for 
@@ -104,34 +112,30 @@ group.
 
 For a single programmer, the entry point should be deliberately minimal. This will 
 promote adoption, and prevents confusion through unecessary complexity. A researcher working alone commits to a 
-single branch, using a handful of commands in a repeatable loop: "git fetch" to 
-check for remote changes without overwriting local work, "git pull" to synchronize with the remote repository,
-"git add", "git commit -m" with an appropriate commit message, and "git push" to update the remote repository with the current changes. 
-The payoff is immediate; a complete, recoverable history of every change made to a codebase, along with a growing record 
-of why those changes were made. In practice, this habit also improves code quality. 
-Writing a commit message, even a short one, asks the developer to justify their edit, 
-which quietly discourages the kind of sprawling, uncommented changes that make code 
-difficult to share or revisit. For researchers who have never used version control, 
-this workflow is an on-ramp. % Maybe on-ramp is too buisness-y?
+single branch, using a handful of commands in a repeatable loop: \texttt{git fetch} to 
+check for remote changes without overwriting local work, \texttt{git pull} to synchronize with the remote repository,
+\texttt{git add}, \texttt{git commit -m} with an appropriate commit message , and \texttt{git push} to update the remote repository with the current changes. 
+The payoff is immediate; a complete, recoverable history of every change made to a softwarebase, along with a growing record 
+of why those changes were made. In practice, this habit also improves software quality. 
+Following a standardized comment format clearly communicates changes between versions more clearly. 
 
-% could be a little less sales-pitchy, but I really like this language so far
 For groups of two to five, we suggest a branching workflow that introduces the 
 core of what makes Git genuinely powerful. Development happens on short-lived feature 
-branches, each tied to a single tracked issue, while a protected "main" branch holds 
-only tested, stable code. Merging back into the "main" branch happens through a pull request; a 
+branches, each tied to a single tracked issue, while a protected \texttt{main} branch holds 
+only tested, stable software. Merging back into the \texttt{main} branch happens through a pull request; a 
 structured, documented conversation about whether the work is ready. This is where the 
 workflow earns its place in an academic context. The pull request stage is peer review 
-applied to code. Merge conflicts, which have a reputation for being intimidating, are 
-in practice a straightforward ask. Git has found two competing versions of the same 
+applied to software. Merge conflicts, which have a reputation for being intimidating, are 
+in practice a straightforward task. Git has found two competing versions of the same 
 line and wants a human to decide which one is correct. They become rarer the more 
 regularly a team commits. Teams that adopt this pattern consistently report that it reduces 
 the fear of breaking things, distributes ownership across contributors, and creates an audit 
 trail of technical decisions that survives student turnover.
 
 % No figures for now, they are optional. I'm going to edit this. 
-One can extend this logic to groups of five or more by inserting a "develop" branch between 
-active development and the stable "main" branch. Feature branches merge into the "develop" branch continuously. 
-The "develop" branch merges into the "main" branch only after passing a test suite. The result a clear, standardized pattern of
+One can extend this logic to groups of five or more by inserting a \texttt{develop} branch between 
+active development and the stable \texttt{main} branch. Feature branches merge into the \texttt{develop} branch continuously. 
+The \texttt{develop} branch merges into the \texttt{main} branch only after passing a test suite. The result a clear, standardized pattern of
 open development, followed by deliberate consolidation. This maps naturally onto how 
 research projects are actually structured. Collaborators and users always have access to a working 
 version of the software, and the test suite acts as a lightweight, automated form of the same quality 
@@ -141,10 +145,12 @@ The goal of this abstract is not to prescribe a single correct approach to scien
 development. Version control philosophy is heavily debated (especially in industry[see citation]), and any team,
 academic or otherwise, will make team-specific adjustments that fit their culture and project structure. 
 The narrower claim is that the academic programming culture, in planetary science and beyond, 
-loses significant value to undocumented code, unrecoverable changes, and the low-grade embarrassment 
-that leads researchers to preface every code-sharing interaction with an apology. 
+loses significant value to undocumented software, unrecoverable changes, and the low-grade embarrassment 
+that leads researchers to preface every software-sharing interaction with an apology. 
 Structured version control does not solve all of that, but it is a concrete, teachable, 
-and immediately applicable step toward code that researchers feel comfortable standing behind.
+and immediately applicable step toward software that researchers feel comfortable standing behind.
+
+\newpage
 
 \printbibliography
 Institute Name: German Aerospace Center (DLR), Institute of Space Research\\

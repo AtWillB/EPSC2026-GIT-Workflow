@@ -53,6 +53,16 @@
   , \printfield{year}%
   , \printfield{shortjournal}%
 }
+\DeclareBibliographyDriver{software}{%
+  \printnames[familyonly]{author}%
+  , \printfield{year}%
+  , \printfield{shortjournal}%
+}
+\DeclareBibliographyDriver{online}{%
+  \printnames[familyonly]{author}%
+  , \printfield{year}%
+  , \printfield{shortjournal}%
+}
 \AtBeginBibliography{\setlength{\parskip}{0pt}}
 \setlength{\bibitemsep}{0pt}
 \setlength{\bibparsep}{0pt}
@@ -65,7 +75,7 @@
 \author[1]{Christian H{\"u}ttig}
 \author[1]{Mario D'Amore}
 %\author[2]{Phillip Baumeister}
-\author[2]{Quentin Betton} % add 3 once you get details
+\author[2, 3]{Quentin Betton} % add 3 once you get details
 
 \affil[1]{Institute of Space Research, German Aerospace Center (DLR), Berlin, Germany\\
 \href{mailto:William.Byrne@dlr.de}{William.Byrne@dlr.de}; \href{mailto:Christian.Huettig@dlr.de}{Christian.Huettig@dlr.de}; \href{mailto:Mario.DAmore@dlr.de}{Mario.DAmore@dlr.de}}
@@ -103,7 +113,7 @@ Planetary scientists increasingly write their own software. Most do so alone,
 without version control, and (especially those early in their careers) with the quiet anxiety that comes from knowing their 
 software may not survive advisor scrutiny. Git \cite{git}, software developed specifically to manage version control, has been the standard tool for 
 collaborative software development in industry for decades, yet its 
-adoption in academic research remains inconsistent\cite{blischak2016, haaranen2015}. Not because researchers 
+adoption in academic research remains inconsistent \cite{blischak2016,haaranen2015}. Not because researchers 
 lack the ability to use it, but because no one has made a concrete case for 
 how it fits into the academic workflow. This work attempts to decrease the ill-perceived 
 barrier to entry by providing three Git-based workflows of increasing complexity, designed for planetary 

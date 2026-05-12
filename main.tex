@@ -91,7 +91,7 @@ explains how Git can help by introducing simple, realistic workflows that match 
 team sizes. For someone working alone, a small routine of saving and syncing changes can create 
 a clear history and make mistakes easier to recover. For small teams (three to five people), using short-lived branches 
 and pull requests adds lightweight peer review, improves communication, and reduces the risk of breaking 
- software. For larger teams, adding a development branch and basic testing suite supports steady collaboration 
+ software. For larger teams, adding a development branch and a basic testing suite supports steady collaboration 
 while keeping a stable version available for users. Any software that aims to be used by more than one person, or used at significant temporal intervals, should adhere to minimal software engineering best practices, and version control is one of them [citation for this being best practice]. The goal is not to force one strict method, but to 
 show that version control can be taught and adopted in academic settings. In planetary science, better 
 Git habits can preserve knowledge, support teamwork, and build confidence in shared research software.
@@ -107,17 +107,17 @@ adoption in academic research remains inconsistent\cite{blischak2016, haaranen20
 lack the ability to use it, but because no one has made a concrete case for 
 how it fits into the academic workflow. This work attempts to decrease the ill-perceived 
 barrier to entry by providing three Git-based workflows of increasing complexity, designed for planetary 
-science teams ranging from a single student, to a large collaborative 
+science teams ranging from a single student to a large collaborative 
 group.
 
 For a single programmer, the entry point should be deliberately minimal. This will 
-promote adoption, and prevents confusion through unecessary complexity. A researcher working alone commits to a 
+promote adoption and prevent confusion through unnecessary complexity. A researcher working alone commits to a 
 single branch, using a handful of commands in a repeatable loop: \texttt{git fetch} to 
 check for remote changes without overwriting local work, \texttt{git pull} to synchronize with the remote repository,
-\texttt{git add}, \texttt{git commit -m} with an appropriate commit message , and \texttt{git push} to update the remote repository with the current changes. 
-The payoff is immediate; a complete, recoverable history of every change made to a softwarebase, along with a growing record 
+\texttt{git add}, \texttt{git commit -m} with an appropriate commit message, and \texttt{git push} to update the remote repository with the current changes. 
+The payoff is immediate: a complete, recoverable history of every change made to a codebase, along with a growing record 
 of why those changes were made. In practice, this habit also improves software quality. 
-Following a standardized comment format clearly communicates changes between versions more clearly. 
+Following a standardized comment format clearly communicates changes between versions. 
 
 For groups of two to five, we suggest a branching workflow that introduces the 
 core of what makes Git genuinely powerful. Development happens on short-lived feature 
@@ -135,7 +135,7 @@ trail of technical decisions that survives student turnover \cite{milliken2021}.
 % No figures for now, they are optional. I'm going to edit this. 
 One can extend this logic to groups of five or more by inserting a \texttt{develop} branch between 
 active development and the stable \texttt{main} branch. Feature branches merge into the \texttt{develop} branch continuously. 
-The \texttt{develop} branch merges into the \texttt{main} branch only after passing a test suite. The result a clear, standardized pattern of
+The \texttt{develop} branch merges into the \texttt{main} branch only after passing a test suite. The result is a clear, standardized pattern of
 open development, followed by deliberate consolidation. This maps naturally onto how 
 research projects are actually structured. Collaborators and users always have access to a working 
 version of the software, and the test suite acts as a lightweight, automated form of the same quality 

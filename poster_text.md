@@ -35,11 +35,6 @@ For a group between 2-5 people, we suggest a simple branch-per-feature approach,
 > git branch Alice-Tidal-Forces
 > git switch Alice-Tidal-Forces
 
-Typing `git branch` by itself will let you know what branch you are on
-> git branch
-> *Alice-Tidal-Forces
-> main
-
 To ensure that the new branch appears in everyone's next `git pull`, type:
 > git push -u origin Alice-Tidal-Forces
 
